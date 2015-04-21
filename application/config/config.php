@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 #local
 $config['base_url'] = 'http://localhost:8080/siakad/';
 
+$config['site_url'] = $config['base_url'];
 /*
 |--------------------------------------------------------------------------
 | Index File

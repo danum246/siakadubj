@@ -14,23 +14,25 @@ $('#editrole').load('<?php echo base_url();?>setting/role/getdataedit/'+id);
 			
 			<div class="widget-content">
 				<div class="span11">
-					<a data-toggle="modal" href="#myModal" class="btn btn-primary"> New Data </a><br><hr>
+					<!--a data-toggle="modal" href="#myModal" class="btn btn-primary"> New Data </a><br><hr-->
 					<table id="example1" class="table table-bordered table-striped">
 	                	<thead>
 	                        <tr> 
 	                        	<th>No</th>
+                                <th>Jabatan</th>
 	                        	<th>Lembaga</th>
                                 <th width="40">Aksi</th>
 	                        </tr>
 	                    </thead>
 	                    <tbody>
-                            <?php $no = 1; foreach ($lembaga as $row) { ?>
+                            <?php $no = 1; foreach ($jabatan as $row) { ?>
 	                        <tr>
 	                        	<td><?php echo $no ;?></td>
+                                <td><?php echo $row->jabatan ?></td>
 	                        	<td><?php echo $row->kode_lembaga ;?>
 								</td>
 	                        	<td class="td-actions">
-									<a data-toggle="modal" class="btn btn-small btn-success" href="#edit" onclick="edit(<?php echo $row->id_lembaga;?>)"><i class="btn-icon-only icon-ok"> </i></a>
+									<a data-toggle="modal" class="btn btn-small btn-success" href="#edit" onclick="edit(<?php echo $row->id_jabatan;?>)"><i class="btn-icon-only icon-ok"> </i></a>
 								</td>
 	                        </tr>
                             <?php $no++; } ?>   

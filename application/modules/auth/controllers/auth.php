@@ -23,7 +23,7 @@ class auth extends CI_Controller {
 				$session['username'] = $row->username;
 				$session['nama'] = $row->nama;
 				$session['lembaga'] = $row->kode_lembaga;
-				$session['lembaga_id'] = $row->id_lembaga;
+				$session['jabatan_id'] = $row->id_jabatan;
 				$session['id_user'] = $row->id_user;
 				$this->session->set_userdata('sess_login',$session);
 				$this->index();

@@ -18,17 +18,29 @@ class login_model extends CI_Model {
 		return $q;
 	}
 
+	function cekakses($menu)
+	{
+		$sess = $this->session->userdata('sess_login');
+		$jabatan = $sess['jabatan_id'];
+		$this->db->select('menu_id');
+		$this->db->from('view_role');
+		$this->db->where('menu_id', $menu);
+		$this->db->where('jabatan_id', $jabatan);
+
+		return $this->db->get();
+	}
+
 	function getparentmenu()
 	{
 		$sess = $this->session->userdata('sess_login'); 
-		$lembaga = $sess['lembaga_id'];
+		$lembaga = $sess['jabatan_id'];
 		$this->db->select('*');
 		$this->db->from('tbl_menu a');
 		$this->db->join('tbl_role_access b', 'a.id_menu = b.menu_id');
-		$this->db->join('tbl_jabatan c', 'b.lembaga_id = c.lembaga_id');
+		$this->db->join('tbl_jabatan c', 'b.jabatan_id = c.id_jabatan');
 		$this->db->join('tbl_karyawan d', 'c.id_jabatan = d.jabatan_id');
 		$this->db->where('a.parent_menu', 0);
-		$this->db->where('b.lembaga_id', $lembaga);
+		$this->db->where('b.jabatan_id', $lembaga);
 		$this->db->order_by('a.menu', 'asc');
 
 		$q = $this->db->get();
@@ -38,14 +50,14 @@ class login_model extends CI_Model {
 	function getmenu($id)
 	{
 		$sess = $this->session->userdata('sess_login'); 
-		$lembaga = $sess['lembaga_id'];
+		$lembaga = $sess['jabatan_id'];
 		$this->db->select('*');
 		$this->db->from('tbl_menu a');
 		$this->db->join('tbl_role_access b', 'a.id_menu = b.menu_id');
-		$this->db->join('tbl_jabatan c', 'b.lembaga_id = c.lembaga_id');
+		$this->db->join('tbl_jabatan c', 'b.jabatan_id = c.id_jabatan');
 		$this->db->join('tbl_karyawan d', 'c.id_jabatan = d.jabatan_id');
 		$this->db->where('a.parent_menu', $id);
-		$this->db->where('b.lembaga_id', $lembaga);
+		$this->db->where('b.jabatan_id', $lembaga);
 		$q = $this->db->get();
 		return $q;	
 	}

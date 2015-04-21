@@ -22,7 +22,7 @@
 								<input type="hidden" name="parmen<?php echo $nm;?>" value="<?php echo $row->id_menu;?>"></th>
                                 <th style="background:lightgray">
 								<?php
-									$sqls = $this->db->query("select count(*) as total from tbl_role_access where menu_id = '".$row->id_menu."' and lembaga_id = '".$lembaga."'")->row();
+									$sqls = $this->db->query("select count(*) as total from tbl_role_access where menu_id = '".$row->id_menu."' and jabatan_id = '".$jabatan."'")->row();
 									$gets = $sqls->total;
 									//var_dump($gets);exit();
 									if($gets['total']==0){?>
@@ -43,7 +43,7 @@
 								</td>
                                 <td class="td-actions">
 									<?php
-									$sql = $this->db->query("select count(*) as total from tbl_role_access where menu_id = '".$wkwk->id_menu."' and lembaga_id = '".$lembaga."'")->row();
+									$sql = $this->db->query("select count(*) as total from tbl_role_access where menu_id = '".$wkwk->id_menu."' and jabatan_id = '".$jabatan."'")->row();
 									$get = $sql->total;
 									if($get['total']==0){?>
                                     <input type="checkbox" name="menu<?php echo $no;?>" value="1" id="menu<?php echo $no;?>">
@@ -61,7 +61,7 @@
                     </table>
 					<input type="hidden" name="trows" id="trows" value="<?php echo $no-1;?>">
 					<input type="hidden" name="prows" id="prows" value="<?php echo $nm-1;?>">
-					<input type="hidden" name="id_lembaga" id="id_lembaga" value="<?php echo $lembaga;?>">
+					<input type="hidden" name="id_jabatan" id="id_jabatan" value="<?php echo $jabatan;?>">
                 </div> 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>

@@ -13,14 +13,14 @@ class role extends CI_Controller {
 	function index()
 	{
 		$data['parent'] = $this->db->query("select * from tbl_menu where parent_menu = 0")->result();
-		$data['lembaga'] = $this->app_model->get_lembaga();
+		$data['jabatan'] = $this->app_model->get_jabatan();
 		$data['page'] = 'setting/role_view';
 		$this->load->view('template',$data);
 	}
 	
-	function getdataedit($id_lembaga){
+	function getdataedit($id_jabatan){
 		$data['parent'] = $this->db->query("select * from tbl_menu where parent_menu = 0")->result();
-		$data['lembaga'] = $id_lembaga;
+		$data['jabatan'] = $id_jabatan;
 		$this->load->view('setting/edit_role_view',$data);
 	}
 
@@ -46,7 +46,7 @@ class role extends CI_Controller {
 
 	function save()
 	{
-		$data['lembaga_id'] = $this->input->post('lembaga', TRUE);
+		$data['jabatan_id'] = $this->input->post('jabatan', TRUE);
 		$data['menu_id'] = $this->input->post('menu', TRUE);
 		$insert = $this->app_model->insertdata('tbl_role_access',$data);
 		if ($insert == TRUE) {
@@ -59,15 +59,15 @@ class role extends CI_Controller {
 	function edit_role(){
 		$trows = $this->input->post('trows');
 		$prows = $this->input->post('prows');
-		$lembaga = $this->input->post('id_lembaga');
-		//die($trows." ".$lembaga);
-		$this->db->query("delete from tbl_role_access where lembaga_id = '$lembaga'");
+		$jabatan = $this->input->post('id_jabatan');
+		//die($trows." ".$jabatan);
+		$this->db->query("delete from tbl_role_access where jabatan_id = '$jabatan'");
 		for($no = 1; $no <= $trows; $no++){
 			$menu = $this->input->post('menu'.$no);
 			if($menu == 1){
 			$data = array(
 			'menu_id'	=> $this->input->post('kode'.$no),
-			'lembaga_id'=> $lembaga
+			'jabatan_id'=> $jabatan
 			);
 			$this->db->insert('tbl_role_access',$data);
 			}
@@ -77,7 +77,7 @@ class role extends CI_Controller {
 			if($menu == 1){
 			$data = array(
 			'menu_id'	=> $this->input->post('parmen'.$no),
-			'lembaga_id'=> $lembaga
+			'jabatan_id'=> $jabatan
 			);
 			$this->db->insert('tbl_role_access',$data);
 			}

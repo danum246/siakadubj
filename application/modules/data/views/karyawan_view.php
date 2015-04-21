@@ -13,7 +13,7 @@ $('#editkary').load('<?php echo base_url();?>data/karyawan/load_edit/'+idk);
 			
 			<div class="widget-content">
 				<div class="span11">
-					<a data-toggle="modal" href="#myModal" class="btn btn-primary"> New Data </a><br><hr>
+					<a data-toggle="modal" href="#myModal" class="btn btn-primary"> Tambah Data </a><br><hr>
 					<table id="example1" class="table table-bordered table-striped">
 	                	<thead>
 	                        <tr> 

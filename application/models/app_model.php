@@ -20,7 +20,7 @@ class app_model extends CI_Model {
 	}
 	
 	function get_jabatan(){
-		$this->db->select('a.*,b.kode_lembaga');
+		$this->db->select('a.*,b.kode_lembaga,b.lembaga');
 		$this->db->from('tbl_jabatan a');
 		$this->db->join('tbl_lembaga b','a.lembaga_id = b.id_lembaga');
 		return $this->db->get()->result();

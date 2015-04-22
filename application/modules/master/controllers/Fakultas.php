@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class tahunajaran extends CI_Controller {
+class Fakultas extends CI_Controller {
 
 	function __construct()
 	{
@@ -13,15 +13,15 @@ class tahunajaran extends CI_Controller {
 
 	function index()
 	{	
-		$data['page'] = 'master/tahunajaran_view';
+		$data['page'] = 'master/fakultas_view';
 		$this->load->view('template',$data);
 	}
 
 	function view_edit($id){
-		$this->load->view('master/tahunajaran_edit');
+		$this->load->view('master/fakultas_edit');
 	}
 
 }
 
-/* End of file tahunajaran.php */
-/* Location: ./application/modules/master/controllers/tahunajaran.php */
+/* End of file fakultas.php */
+/* Location: ./application/modules/master/controllers/fakultas.php */

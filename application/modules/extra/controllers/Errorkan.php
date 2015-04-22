@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class errorkan extends CI_Controller {
+class Errorkan extends CI_Controller {
 
 	public function index()
 	{

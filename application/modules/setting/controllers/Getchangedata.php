@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class getchangedata extends CI_Controller {
+class Getchangedata extends CI_Controller {
 
 	function __construct()
 	{

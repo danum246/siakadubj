@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mahasiswa extends CI_Controller {
+class Mk extends CI_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
 		//$id_menu = 32 (database); cek apakah user memiliki akses
 		if ($this->session->userdata('sess_login') == TRUE) {
-			$akses = $this->login_model->cekakses(32)->result();
+			$akses = $this->login_model->cekakses(34)->result();
 			if ($akses != TRUE) {
 				redirect('home','refresh');
 			}
@@ -19,16 +19,16 @@ class mahasiswa extends CI_Controller {
 
 	function index()
 	{	
-		$data['page'] = 'data/mahasiswa_view';
-		$this->load->view('template',$data);
+		$akademik['page'] = 'akademik/mk_view';
+		$this->load->view('template',$akademik);
 	}
 
-	function view_mhs(){
-		$data['page'] = 'data/mahasiswa_lihat';
-		$this->load->view('template',$data);
+	function view_mk(){
+		$akademik['page'] = 'akademik/mk_lihat';
+		$this->load->view('template',$akademik);
 	}
 
 }
 
-/* End of file mahasiswa.php */
-/* Location: ./application/modules/data/controllers/mahasiswa.php */
+/* End of file mk.php */
+/* Location: ./application/modules/akademik/controllers/mahasiswa.php */

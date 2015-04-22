@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class lembaga extends CI_Controller {
+class Lembaga extends CI_Controller {
 
 	function __construct()
 	{

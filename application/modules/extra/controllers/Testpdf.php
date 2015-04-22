@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class testpdf extends CI_Controller {
+class Testpdf extends CI_Controller {
 
 	public function __construct()
 	{

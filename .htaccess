@@ -1,6 +1,8 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
-RewriteCond $1 !^(index\.php|timthumb\.php|open-flash-chart\.swf|assets|captcha|application|upload)
-RewriteRule ^(.*)$ ./index.php/$1 [L]
+RewriteCond $1 !^(index\.php|resources|application|assets|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
 </IfModule>
 
